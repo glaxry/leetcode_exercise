@@ -1,3 +1,4 @@
+//同向双指针
 class Solution {
 public:
     int mySqrt(int x) {
@@ -12,5 +13,37 @@ public:
             }
         }
         return ans;
+    }
+};
+
+//相向双指针
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        //双指针
+        if(nums.size() == 0){
+            return 0;
+        }
+        int left = 0;
+        int right = nums.size() - 1;
+        int flag = 0;
+        while(left <= right){
+            if(flag != 0)
+            {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+            }
+            while(left <= (nums.size() - 1) &&nums[left] != val ){
+                left++;
+            }
+            while( right >= 0&&nums[right] == val ){
+                right--;
+            }
+            if(flag == 0){
+                flag = 1;
+            }
+        }
+        return left;
     }
 };
