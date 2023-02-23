@@ -17,6 +17,7 @@ public:
 };
 
 //相向双指针
+//更快解法，不需要交换，直接覆盖就可
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
